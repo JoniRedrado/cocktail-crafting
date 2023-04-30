@@ -1,0 +1,40 @@
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  padding-top: 100px;
+  }
+
+.intro{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.intro h6{
+  margin-top: 0;
+}
+
+.intro p{
+  text-align: center;
+}
+
+.random__drink{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 25px;
+}
+
+.random__drink img {
+  width: 280px;
+}
+
+.random__drink div {
+  width: 40%;
+  padding: 30px;
+}
