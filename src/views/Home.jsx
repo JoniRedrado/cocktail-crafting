@@ -1,4 +1,5 @@
 //LIBRERIAS
+import { useEffect, useState } from 'react'
 
 //COMPONENTES
 import Header from '../components/Header'
@@ -7,14 +8,39 @@ import Header from '../components/Header'
 import '../css/home.css'
 
 //ASSETS
-import logo from '../assets/react.svg'
+
+
+//LLAMADO A LA API
+const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php'
+console.log(url);
+
+const getRandomDrink = async () => {
+  
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.drinks[0]
+}
 
 
 
 const Home = () => {
   
-  
-  
+  const [ drink, setDrink ] = useState()
+
+
+  useEffect( () => {
+    const fetchData = async () => {
+      try{
+        const response = await getRandomDrink();
+        console.log(response.strDrink);
+        setDrink(response)
+      } catch (error){
+        alert("Error")
+      }
+    };
+    fetchData()
+  }, [])
+
   
   return (
     <>
@@ -25,14 +51,18 @@ const Home = () => {
           <h6>Creado por Jonathan Redrado</h6>
           <p>Tenés ganas de un trago y no sabes cual?<br></br>Aca te dejo una opcion...</p>
         </div>
+
+      {drink === undefined ? <p>Cargando</p> :
+
         <div className='random__drink'>
-          <img src={logo} />
+          <img src={drink.strDrinkThumb} onLoad={()=>{console.log(drink)}}/>
           <div>
-            <h6>Nombre del trago</h6>
+            <h6>{drink.strDrink}</h6>
             <p>Descripcion de como preparar este exquisito trago. Vas a necestar muuuhcos ingredientes njsakndqj skalnjkq ubkjbjk</p>
             <span>Ver mas</span>
           </div>
         </div>
+        }
       </main>
     </>
   )

@@ -1,4 +1,3 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -9,6 +8,7 @@ import Home from './views/Home'
 import Categories from './views/Categories'
 import Search from './views/Search' 
 import './index.css'
+import DrinkDetail from './views/DrinkDetail';
 
 
 const router = createBrowserRouter([
@@ -23,11 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/search",
     element: <Search />
+  },
+  {
+    path: "/drink",
+    element: <DrinkDetail />
   }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>,
+  
+    <RouterProvider router={router} />,
 )

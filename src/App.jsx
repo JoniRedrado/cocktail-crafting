@@ -6,6 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Home from './views/Home'
 import Categories from './views/Categories'
 import Search from './views/Search' 
+import DrinkDetail from './views/DrinkDetail'
+
 //CSS
 import './App.css'
 
@@ -18,6 +20,7 @@ function App() {
           <Route path="/" component={Home} />
           <Route path="/categories" component={Categories} />
           <Route path="/search" component={Search} />
+          <Route path="/drink" component={DrinkDetail} />
         </Switch>
       </BrowserRouter>
     
